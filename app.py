@@ -32,6 +32,7 @@ def post():
     user = flask.session.get('user', 'anonymous')
     now = datetime.datetime.now().replace(microsecond=0).time()
     red.publish('chat', u'[%s] %s: %s' % (now.isoformat(), user, message))
+    return flask.Response(status=204)
 
 
 @app.route('/stream')
