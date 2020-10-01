@@ -1,4 +1,4 @@
-A primitive chat app created to experiment with Flask, Redis, Gevent & Server-Sent Events.
+We all love using chatting apps like Facebook,Whatsapp,Twitter right!! so Here's a primitive chat app created to experiment with Flask, Redis, Gevent & Server-Sent Events.
 
 ## installation
     pip install flask redis gevent gunicorn
