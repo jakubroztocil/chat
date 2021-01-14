@@ -3,11 +3,13 @@ import datetime
 import flask
 import redis
 
+import os
 
 app = flask.Flask(__name__)
-app.secret_key = 'asdf'
-red = redis.StrictRedis()
-
+app.secret_key = 'docker-powered-chat'
+red = redis.StrictRedis(host=os.environ["REDIS_SERVER_NAME"])
+print("Connected servers so far", red.get("CONNECTED_SERVERS"))
+red.incr("CONNECTED_SERVERS")
 
 def event_stream():
     pubsub = red.pubsub()

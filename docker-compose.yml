@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  chat_web:
+    image: redis_chat:0.0.1
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - chat_redis_server
+    environment:
+      - REDIS_SERVER_NAME=chat_redis_server
+  chat_redis_server:
+    image: redis:5
+    ports:
+      - 6379:6379
